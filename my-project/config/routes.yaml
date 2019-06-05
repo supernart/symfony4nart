@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\NumberController::getNumberAction
+
+sf4_number:
+    path: /1
+    controller: App\Controller\NumberController::getNumber2Action
