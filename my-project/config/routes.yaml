@@ -2,6 +2,6 @@ index:
     path: /
     controller: App\Controller\NumberController::getNumberAction
 
-sf4_number:
-    path: /1
-    controller: App\Controller\NumberController::getNumber2Action
+calculate:
+    path: /sum/{num1}/{num2}
+    controller: App\Controller\NumberController::callServiceAction

@@ -1,5 +1,19 @@
-<a href="{{ path('sf4_number') }}">go to link2</a>
+<h2>select number</h2>
+num1 :
+<select name="num1">
+    {% for i in 0..10 %}
+        <option value="{{ i }}">{{ i }}</option>
+    {% endfor %}
+</select>
+
 <br>
-{% for number in mynumbers %}
-    {{ number }}
-{% endfor %}
+
+num2 :
+<select name="num2">
+    {% for j in 0..10 %}
+    <option value="{{ j }}>{{ j }}</option>
+    {% endfor %}
+</select>
+
+<br>
+<a href="{{ path('calculate', {'num1':3, 'num2':3} ) }}">calculate</a>

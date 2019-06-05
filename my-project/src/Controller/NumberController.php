@@ -2,28 +2,38 @@
 
 namespace App\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Services\SumAndMultiplyWithNumber;
 
 class NumberController extends AbstractController
 {
-    public function getNumberAction(){
-        $mynumbers = array(
-            1,2,3,4,5,6,7
-        );
+    private $sumAndMultiplyWithNumber;
+
+    public function __construct(SumAndMultiplyWithNumber $sumAndMultiplyWithNumber)
+    {
+        $this->sumAndMultiplyWithNumber = $sumAndMultiplyWithNumber;
+    }
+
+    public function getNumberAction()
+    {
         return $this->render(
-            'shownumber.html.twig',
-            ['mynumbers' => $mynumbers]
+            'shownumber.html.twig'
         );
     }
 
-    public function getNumber2Action(){
-        $mynumbers = array(
-            44,444,44,44
+    public function callServiceAction(float $num1, float $num2)
+    {
+        dd($this->sumAndMultiplyWithNumber->call($num1, $num2, 10.0));
+        $mul = array(
+            'result' => $result,
+            'input1' => $num1,
+            'input2' => $num2,
+            'input3' => 10,
         );
         return $this->render(
-            'shownumber2.html.twig',
-            ['mynumbers' => $mynumbers]
+            'calculate.html.twig',
+            ['mul' => $mul]
         );
     }
 }
