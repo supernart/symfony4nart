@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-class Sum
+class Sum implements SumInterface
 {
-    public function getSum(float $s1, float $s2)
+    public function getSum(float $s1, float $s2): float
     {
         return $s1 + $s2;
     }

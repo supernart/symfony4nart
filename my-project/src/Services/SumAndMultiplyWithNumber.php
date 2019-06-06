@@ -3,16 +3,17 @@
 namespace App\Services;
 
 
-class SumAndMultiplyWithNumber
+class SumAndMultiplyWithNumber implements SumAndMultiplyWithNumberInterface
 {
+    /** @var SumInterface  */
     private $sum;
 
-    public function __construct(Sum $sum)
+    public function __construct(SumInterface $sumInterface)
     {
-        $this->sum = $sum;
+        $this->sum = $sumInterface;
     }
 
-    public function call(float $a, float $b, float $c)
+    public function call(float $a, float $b, float $c): float
     {
         return $this->sum->getSum($a, $b) * $c;
     }

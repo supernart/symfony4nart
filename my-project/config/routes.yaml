@@ -4,4 +4,4 @@ index:
 
 calculate:
     path: /sum/{num1}/{num2}
-    controller: App\Controller\NumberController::callServiceAction
+    controller: app.controller.number_controller::callServiceAction

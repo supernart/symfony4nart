@@ -9,31 +9,25 @@ use App\Services\SumAndMultiplyWithNumber;
 class NumberController extends AbstractController
 {
     private $sumAndMultiplyWithNumber;
+//    private $container;
 
     public function __construct(SumAndMultiplyWithNumber $sumAndMultiplyWithNumber)
     {
         $this->sumAndMultiplyWithNumber = $sumAndMultiplyWithNumber;
+//        $this->container = $container;
     }
 
     public function getNumberAction()
     {
-        return $this->render(
-            'shownumber.html.twig'
-        );
+        $this->container->get('app.services.sum');
+//        return $this->render(
+//            'shownumber.html.twig'
+//        );
     }
 
     public function callServiceAction(float $num1, float $num2)
     {
+        dd(get_class($this->container));
         dd($this->sumAndMultiplyWithNumber->call($num1, $num2, 10.0));
-        $mul = array(
-            'result' => $result,
-            'input1' => $num1,
-            'input2' => $num2,
-            'input3' => 10,
-        );
-        return $this->render(
-            'calculate.html.twig',
-            ['mul' => $mul]
-        );
     }
 }
