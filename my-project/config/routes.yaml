@@ -1,7 +1,15 @@
 index:
     path: /
-    controller: App\Controller\NumberController::getNumberAction
+    controller: app.controller.number_controller::getNumberAction
 
 calculate:
     path: /sum/{num1}/{num2}
     controller: app.controller.number_controller::callServiceAction
+
+number:
+    path: /showname
+    controller: app.controller.dummy_name_controller::showName
+
+task:
+    path: /task
+    controller: app.controller.task_controller::new

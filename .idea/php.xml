@@ -45,6 +45,16 @@
       <path value="$PROJECT_DIR$/my-project/vendor/psr/log" />
       <path value="$PROJECT_DIR$/my-project/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/my-project/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/my-project/vendor/symfony/security-core" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

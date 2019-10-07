@@ -5,20 +5,32 @@
         https://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <!-- Default configuration for services in *this* file -->
-<!--        <defaults autowire="false" autoconfigure="true" public="false"/>-->
-
-<!--        <prototype namespace="App\" resource="../src/*"-->
-<!--                   exclude="../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}"/>-->
-
-        <service class="App\Services\Sum" id="app.services.sum" />
-        <service class="App\Services\SumAndMultiplyWithNumber" id="app.services.sum_and_multiply_with_number">
-            <argument type="service" id="app.services.sum" />
+        <service class="App\Command\TestCommand" id="app.command.test_command">
+            <argument type="service" id="service_container"/>
+            <tag name="console.command"/>
         </service>
-        <service class="App\Controller\NumberController" id="app.controller.number_controller" >
-            <argument type="service" id="app.services.sum_and_multiply_with_number" />
-<!--            <argument type="service" id="service_container" />-->
-            <tag name="controller.service_arguments" />
+
+        <service class="App\Services\Sum" id="app.services.sum"/>
+
+        <service class="App\Services\SumAndMultiplyWithNumber" id="app.services.sum_and_multiply_with_number">
+            <argument type="service" id="app.services.sum"/>
+        </service>
+
+        <service class="App\Controller\NumberController" id="app.controller.number_controller">
+            <argument type="service" id="app.services.sum_and_multiply_with_number"/>
+            <argument type="service" id="app.services.sum"/>
+            <tag name="controller.service_arguments"/>
+        </service>
+
+        <service class="App\Services\BundleName" id="app.services.bundle_name"/>
+
+        <service class="App\Controller\DummyNameController" id="app.controller.dummy_name_controller">
+            <argument type="service" id="app.services.bundle_name"/>
+            <tag name="controller.service_arguments"/>
+        </service>
+
+        <service class="App\Controller\TaskController" id="app.controller.task_controller">
+            <tag name="controller.service_arguments"/>
         </service>
     </services>
 </container>
